@@ -91,7 +91,7 @@ def parse_xml(file_name, check_exists=True):
     if check_exists and not os.path.exists(file_name):
         return None, "File does not exist %s" % str(file_name)
 
-    with open(file_name, 'r') as fobj:
+    with open(file_name, 'r', encoding='utf-8') as fobj:
         try:
             tree = XmlET.parse(fobj, parser=XmlET.XMLParser(target=CommentedTreeBuilder()))
         except Exception as e:
